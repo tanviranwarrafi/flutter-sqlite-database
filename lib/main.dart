@@ -7,7 +7,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -36,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sqlite Demo'),
+        title: Text('SQLite Database Demo'),
       ),
       body: ListView(
         children: <Widget>[
@@ -71,6 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       _submitStudent(context);
                     },
                   ),
+                  SizedBox(height: 16,),
                   FutureBuilder(
                     future: dbmanager.getStudentList(),
                     builder: (context,snapshot){
@@ -83,13 +83,16 @@ class _MyHomePageState extends State<MyHomePage> {
                             Student st = studlist[index];
                             return Card(
                               child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: <Widget>[
+                                  SizedBox(width: 8.0),
                                   Container(
                                     width: width*0.6,
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: <Widget>[
                                         Text('Name: ${st.name}',style: TextStyle(fontSize: 15),),
+                                        SizedBox(height: 4,),
                                         Text('Course: ${st.course}', style: TextStyle(fontSize: 15, color: Colors.black54),),
                                       ],
                                     ),
@@ -106,8 +109,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                     setState(() {
                                       studlist.removeAt(index);
                                     });
-                                  }, icon: Icon(Icons.delete, color: Colors.red,),)
-
+                                  }, icon: Icon(Icons.delete, color: Colors.red,),),
+                                  SizedBox(width: 8.0),
                                 ],
                               ),
                             );
