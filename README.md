@@ -1,6 +1,6 @@
 # SQLite Database
 
-This project is for learning Flutter (Native Application Development)
+This project is for learning SQLite database in Flutter (Native Application Development)
 
 ### Feature : SQLite Database CRUD
  - Create Data
